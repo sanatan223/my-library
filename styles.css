@@ -24,6 +24,27 @@
     white-space: nowrap;
 }
 
+.book-shelf{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.book{
+    border: 3px solid rgb(250, 235, 235);
+    margin: 20px;
+    position: relative;
+}
+
+.book-image{
+    width: 400px;
+}
+
+.book-label{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    font-size: 20px;
+}
 
 .enabled{
     border-radius: 20px 20px 0px 0px;
