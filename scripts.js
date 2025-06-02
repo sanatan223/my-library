@@ -30,7 +30,7 @@ function showBooks(arr){
         <div class="book">
             <img class="book-image" src="images/book.png" alt="not found">
             <div class="book-label">
-                <h>( ${i+1} )</h1>
+                <h3>( ${i+1} )</h3>
                 <div><b>Name:</b> ${book.name}</div>
                 <div><b>author:</b> ${book.author}</div>
                 <div><b>pages:</b> ${book.pages} </div>
