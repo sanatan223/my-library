@@ -1,4 +1,6 @@
 const htmlBookShelf = document.querySelector(".js-book-shelf");
+const htmlForm = document.querySelector(".js-form")
+const htmlAddBtn = document.querySelector(".js-add-button")
 
 const myLibrary = [];
 function Book(name, author, pages, status){
@@ -23,6 +25,11 @@ myLibrary.push(book4);
 
 const veryLongBook = new Book("veryLongBook", "myself", 69, "not read");
 myLibrary.push(veryLongBook);
+
+htmlAddBtn.addEventListener("click", () => {
+    htmlForm.showModal()
+    console.log("works")
+})
 
 function showBooks(arr){
     arr.forEach((book, i) => {
