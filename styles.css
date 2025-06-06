@@ -123,6 +123,25 @@ body{
     width: 200px;
 }
 
+.book-statuse{
+    position: absolute;
+    bottom: 25%;
+    left: 33%;
+    font-size: 20px;
+    width: 125px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.read{
+    background-color: rgb(50, 225, 50);
+}
+
+.not-read{
+    background-color: rgb(255, 50, 50);
+}
+
 .enabled{
     border-radius: 20px 20px 0px 0px;
     margin-bottom: -15px;

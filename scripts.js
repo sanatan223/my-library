@@ -76,6 +76,7 @@ function showBooks(arr){
                 <div><b>author:</b> ${book.author}</div>
                 <div><b>pages:</b> ${book.pages} </div>
             </div>
+            <div class="book-statuse ${book.statuse == "read"? "read" : "not-read"}">${book.statuse}</div>
         </div>`
     });
 }
