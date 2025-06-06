@@ -6,40 +6,62 @@ const htmlConfirmBtn = document.querySelector(".js-confirm-btn");
 const htmlNameInput = document.querySelector(".js-name-input");
 const htmlAuthorInput = document.querySelector(".js-author-input");
 const htmlPagesInput = document.querySelector(".js-pages-input");
+const htmlReadBtn = document.querySelector(".js-read-btn");
+const htmlNotReadBtn = document.querySelector(".js-not-read-btn")
 
 const myLibrary = [];
-function Book(name, author, pages, status){
+function Book(name, author, pages, statuse){
     this.uid = crypto.randomUUID();
     this.name = name;
     this.author = author;
     this.pages = pages;
-    this.status = status;
+    this.statuse = statuse;
 }
 
+let statuse = "not read";
 htmlAddBtn.addEventListener("click", () => {
     htmlForm.showModal()
-    console.log("works")
 })
 
+htmlReadBtn.addEventListener("click", () => {
+    statuse = "read";
+    giveStyleToStatusBtn();
+})
+htmlNotReadBtn.addEventListener("click", () => {
+    statuse = "not read";
+    giveStyleToStatusBtn();
+})
 htmlCancelBtn.addEventListener("click", () => {
     htmlForm.close()
-    console.log("closed it !")
 })
 
 htmlConfirmBtn.addEventListener("click", () => {
     let name = htmlNameInput.value;
     let author = htmlAuthorInput.value;
     let pages = htmlPagesInput.value;
-    let status = "not read";
-    addBookToLibrary(name, author, pages, status);
+    addBookToLibrary(name, author, pages, statuse); // uses global statuse
     htmlForm.close();
+    htmlNameInput.value = htmlAuthorInput.value = htmlPagesInput.value = "";
+    statuse = "not read";
+    giveStyleToStatusBtn();
+});
 
-})
+function giveStyleToStatusBtn(){
+    if (statuse == "read"){
+        htmlReadBtn.style.backgroundColor = "green";
+        htmlNotReadBtn.style.backgroundColor = "white";
+    }
+    else {
+        htmlReadBtn.style.backgroundColor = "white";
+        htmlNotReadBtn.style.backgroundColor = "red";
+    }
+}
 
-function addBookToLibrary(name, author, pages, status){
-    let tempBook = new Book(name, author, pages, status);
+function addBookToLibrary(name, author, pages, statuse){
+    let tempBook = new Book(name, author, pages, statuse);
     myLibrary.push(tempBook);
     showBooks(myLibrary);
+    console.log(myLibrary)
 }
 
 function showBooks(arr){
@@ -47,7 +69,7 @@ function showBooks(arr){
     arr.forEach((book, i) => {
         htmlBookShelf.innerHTML +=`
         <div class="book">
-            <img class="book-image" src="images/book.png" alt="not found">
+            <img class="book-image" src="images/${book.statuse == "read"? "read" : "not-read"}-book.png" alt="not found">
             <div class="book-label">
                 <h3>( ${i+1} )</h3>
                 <div><b>Name:</b> ${book.name}</div>

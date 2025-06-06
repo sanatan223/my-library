@@ -29,15 +29,29 @@
     <dialog class="form js-form">
         <div class="input-part">
             <h3>Name:</h3>
-            <input class="text-box js-name-input" type="text" placeholder="Name of the book">
+            <input class="text-box  js-name-input" autocomplete="off" type="text" placeholder="Name of the book">
         </div>
         <div class="input-part">
             <h3>Author:</h3>
-            <input class="text-box js-author-input" type="text" placeholder="Name of the Author">
+            <input class="text-box js-author-input" autocomplete="off" type="text" placeholder="Name of the Author">
         </div>
         <div class="input-part">
             <h3>Pages:</h3>
-            <input class="text-box js-pages-input" type="number" placeholder="Number of pages it have">
+            <input class="text-box js-pages-input" autocomplete="off" type="number" placeholder="Number of pages it have">
+        </div>
+        <div class="input-part" autocomplete="off">
+            <h3>Status:</h3>
+            <div class="status-btns-part">
+                <div class="status-btns js-read-btn" style="
+                border: 1px solid black;
+                border-radius: 20px 0px 0px 20px;
+                ">read</div>
+                <div class="status-btns js-not-read-btn" style="
+                background-color: red;
+                border: 1px solid black;
+                border-radius: 0px 20px 20px 0px;
+                ">not read</div>
+            </div>
         </div>
         <div class="form-btns">
             <button class="form-btn js-cancel-btn">Cancel</button>
