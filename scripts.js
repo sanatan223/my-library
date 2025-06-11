@@ -62,7 +62,6 @@ function addBookToLibrary(name, author, pages, statuse){
     let tempBook = new Book(name, author, pages, statuse);
     myLibrary.push(tempBook);
     showBooks(myLibrary);
-    console.log(myLibrary)
 }
 
 function showBooks(arr){
@@ -78,6 +77,7 @@ function showBooks(arr){
                 <div><b>pages:</b> ${book.pages} </div>
             </div>
             <div class="book-statuse js-book-statuse-btn ${book.statuse == "read"? "read" : "not-read"}" data-book-id="${book.uid}">${book.statuse}</div>
+            <div class="book-delete js-book-delete-btn" data-book-id="${book.uid}">Delete</div>
         </div>`
     })
     activateStatuseBtn();
@@ -98,6 +98,24 @@ function activateStatuseBtn(){
                     else {
                         book.statuse = "read";
                     }
+                    showBooks(myLibrary);
+                }
+            })
+        })
+    })
+    activateDeleteBtn();
+}
+
+function activateDeleteBtn(){
+    const htmlBookDeleteBtns = document.querySelectorAll(".js-book-delete-btn");
+    htmlBookDeleteBtns.forEach((element) => {
+
+        let elementId = element.dataset.bookId;
+
+        element.addEventListener("click", () => {
+            myLibrary.forEach((book, index) => {
+                if (elementId == book.uid){
+                    myLibrary.splice(index, 1);
                     showBooks(myLibrary);
                 }
             })

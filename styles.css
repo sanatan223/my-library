@@ -109,6 +109,7 @@ body{
     margin: 20px;
     position: relative;
     border: none;
+    
 }
 
 .book-image{
@@ -125,7 +126,7 @@ body{
 
 .book-statuse{
     position: absolute;
-    bottom: 25%;
+    bottom: 33%;
     left: 33%;
     font-size: 20px;
     width: 125px;
@@ -133,6 +134,20 @@ body{
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.book-delete{
+    position: absolute;
+    bottom: 20%;
+    left: 33%;
+    font-size: 20px;
+    width: 125px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(61, 15, 15);
+    color: white;
 }
 
 .read{
